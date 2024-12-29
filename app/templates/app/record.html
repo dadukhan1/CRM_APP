@@ -1,0 +1,46 @@
+{% extends "app/base.html" %} {% block content %}
+
+<h1>Hello Sir !!!</h1>
+<br/>
+<br/>
+<style>
+</style>
+<div class="card" style="width: 18rem">
+  <div class="card-body">
+    
+    <ul class="list-group list-group-flush">
+    <p>{{customer_record.id }}</p>
+    <h4 class="card-title list-group-item">{{customer_record}}</h4>
+    <p class="card-text">
+         
+            Email: {{customer_record.email }} <br/>
+         
+         
+          Phone: {{customer_record.phone }}
+          <br/>
+         
+            Address: {{customer_record.address }}
+            <br/>
+         
+            City: {{customer_record.city }} 
+          
+            <br/>
+            Zip Code: {{customer_record.zip_code }} 
+            <br/>
+         
+      Created at: {{customer_record.create_at }} 
+      <br/>
+     
+</ul>
+    
+  </div>
+</div>
+<br>
+<a href="{% url "home"%}" class="btn btn-primary">Back to home</a>
+<a href="{% url "update_record" customer_record.id%}" class="btn btn-primary">Update Record</a>
+
+<a href="{% url 'delete_user' customer_record.id %}" class="btn btn-danger">Delete</a>
+
+{% if user.is_authenticated %} {{custom_message}}
+ 
+{% endif %} {% endblock %}

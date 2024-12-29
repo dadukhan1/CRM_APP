@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Django Website</title>
+    <style>
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2ecc71;
+        --background-color: #f4f4f4;
+        --text-color: #333;
+        --header-color: #2c3e50;
+        --border-color: #ddd;
+        --success-color: #27ae60;
+        --error-color: #e74c3c;
+        --button-gradient: linear-gradient(135deg, #6e8efb, #a777e3);
+        --button-shadow: 0 5px 15px rgba(110, 142, 251, 0.4);
+      }
+
+      body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(45deg, #f3f4f6, #ddd);
+      }
+
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        background-color: var(--header-color);
+        color: white;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      header h1 {
+        margin: 0;
+      }
+
+      nav {
+        background-color: var(--primary-color);
+        padding: 0.5rem;
+      }
+
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      nav ul li {
+        margin: 0 10px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+
+      main {
+        padding: 20px 0;
+      }
+
+      h1, h2, h3 {
+        color: var(--header-color);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      table, th, td {
+        border: 1px solid var(--border-color);
+      }
+
+      th, td {
+        padding: 10px;
+        text-align: left;
+      }
+
+      th {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      textarea,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+      }
+
+      a.button {
+        display: inline-block;
+        background: var(--button-gradient);
+        color: white;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 30px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: var(--button-shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      a.button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 7px 20px rgba(110, 142, 251, 0.6);
+      }
+
+      a.button:active {
+        transform: translateY(-1px);
+        box-shadow: 0 3px 10px rgba(110, 142, 251, 0.4);
+      }
+
+      a.button::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: var(--button-gradient);
+        z-index: -1;
+        filter: blur(10px);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      a.button:hover::before {
+        opacity: 1;
+      }
+
+      .success {
+        color: var(--success-color);
+        font-weight: bold;
+      }
+
+      .error {
+        color: var(--error-color);
+        font-weight: bold;
+      }
+
+      footer {
+        background-color: var(--header-color);
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          width: 95%;
+        }
+
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        nav ul li {
+          margin: 5px 0;
+        }
+
+        table {
+          font-size: 14px;
+        }
+
+        th, td {
+          padding: 5px;
+        }
+
+        a.button {
+          padding: 10px 20px;
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="{% url 'home' %}" class="button">Go to App</a>
+  </body>
+</html>

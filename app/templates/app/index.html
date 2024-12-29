@@ -1,0 +1,42 @@
+{% extends 'app/base.html' %} {% block content %}
+
+{% if user.is_authenticated %}
+
+<h1>Records ....</h1>
+
+{% if records %}
+
+<table class="table table-striped table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+      <th scope="col">City</th>
+      <th scope="col">Zip-Code</th>
+      <th scope="col">Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for record in records %}
+    <tr>
+      <td><a href="{% url 'record' record.id %}">{{record.id }}</a></td>
+      <td>{{record }}</td>
+      <td>{{record.email }}</td>
+      <td>{{record.phone }}</td>
+      <td>{{record.address }}</td>
+      <td>{{record.city }}</td>
+      <td>{{record.zip_code }}</td>
+      <td>{{record.create_at }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<br />
+
+{% endif %}
+<br />
+{% else %} {% include "app/Components/login.html" %} {% endif %} {% endblock %}
